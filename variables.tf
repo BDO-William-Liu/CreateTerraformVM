@@ -33,7 +33,7 @@ variable "admin_password" {
 variable "virtual_network_name" {
     description = "name of existing virtual network"
     type = string
-    default = ""
+    default = "terraformVN"
 }
 
 variable "address_prefix" {
