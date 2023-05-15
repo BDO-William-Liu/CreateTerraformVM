@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "myResourceGroup" {
 
 resource "azurerm_subnet" "mySubnet" {
   name                 = "${var.name}-Subnet"
-  resource_group_name  = azurerm_resource_group.myResourceGroup
+  resource_group_name  = azurerm_resource_group.myResourceGroup.name
   virtual_network_name = var.virtual_network_name
   address_prefixes     = var.address_prefix
 }
