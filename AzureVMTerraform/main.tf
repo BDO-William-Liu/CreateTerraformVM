@@ -1,20 +1,15 @@
-resource "azurerm_resource_group" "myResourceGroup" {
-    name = "${var.name}-ResourceGroup"
-    location = var.location
-}
-
 resource "azurerm_subnet" "mySubnet" {
   name                 = "${var.name}-Subnet"
-  resource_group_name  = azurerm_resource_group.myResourceGroup.name
-  virtual_network_name = var.virtual_network_name
+  resource_group_name  = var.resource_group
+  virtual_network_name = var.virtual_network
   address_prefixes     = var.address_prefix
 }
 // mySubnet depends on name argument of myResourceGroup
 
 resource "azurerm_network_interface" "myNetworkInterface" {
   name                = "${var.name}-NIC"
-  location            = azurerm_resource_group.myResourceGroup.location
-  resource_group_name = azurerm_resource_group.myResourceGroup.name
+  location            = var.location
+  resource_group_name = azurerm_subnet.mySubnet.resource_group_name
 
   ip_configuration {
     name                          = "internal"
@@ -26,8 +21,8 @@ resource "azurerm_network_interface" "myNetworkInterface" {
 
 resource "azurerm_windows_virtual_machine" "myVirtualMachine" {
   name                = var.name
-  resource_group_name = azurerm_resource_group.myResourceGroup.name
-  location            = azurerm_resource_group.myResourceGroup.location
+  resource_group_name = azurerm_subnet.mySubnet.resource_group_name
+  location            = azurerm_network_interface.myNetworkInterface.location
   size                = var.size
   admin_username      = var.admin_username
   admin_password      = var.admin_password

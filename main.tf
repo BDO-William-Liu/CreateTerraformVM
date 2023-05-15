@@ -6,6 +6,7 @@ module "create-azure-vm" {
     size = var.size
     admin_username = var.admin_username
     admin_password = var.admin_password
-    virtual_network_name = var.virtual_network_name
+    resource_group = var.resource_group
+    virtual_network = var.virtual_network
     address_prefix = var.address_prefix
 }

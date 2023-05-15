@@ -1,7 +1,7 @@
 variable "name" {
     description = "the name of the virtual machine that is to be created"
     type = string
-    default = "terraformVM"
+    default = "myterraformVM"
 }
 
 variable "location" {
@@ -30,10 +30,16 @@ variable "admin_password" {
     sensitive = true
 }
 
-variable "virtual_network_name" {
+variable "virtual_network" {
     description = "name of existing virtual network"
     type = string
-    default = "terraformVN"
+    default = "myterraformVN"
+}
+
+variable "resource_group" {
+    description = "name of existing resource group"
+    type = string
+    default = "myterraformRG"
 }
 
 variable "address_prefix" {

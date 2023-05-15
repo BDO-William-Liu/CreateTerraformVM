@@ -30,8 +30,14 @@ variable "admin_password" {
     sensitive = true
 }
 
-variable "virtual_network_name" {
+variable "virtual_network" {
     description = "name of existing virtual network"
+    type = string
+    default = ""
+}
+
+variable "resource_group" {
+    description = "name of existing resource group"
     type = string
     default = ""
 }
