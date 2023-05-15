@@ -21,7 +21,7 @@ resource "azurerm_virtual_machine" "myVirtualMachine" {
   name                = var.name
   resource_group_name = azurerm_subnet.mySubnet.resource_group_name
   location            = azurerm_network_interface.myNetworkInterface.location
-  size                = var.size
+  vm_size             = var.size
   network_interface_ids = [
     azurerm_network_interface.myNetworkInterface.id
   ]
