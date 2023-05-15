@@ -13,8 +13,8 @@ resource "azurerm_subnet" "mySubnet" {
 
 resource "azurerm_network_interface" "myNetworkInterface" {
   name                = "${var.name}-NIC"
-  location            = azurerm_resource_group.myResourceGroup
-  resource_group_name = azurerm_resource_group.myResourceGroup
+  location            = azurerm_resource_group.myResourceGroup.location
+  resource_group_name = azurerm_resource_group.myResourceGroup.name
 
   ip_configuration {
     name                          = "internal"
