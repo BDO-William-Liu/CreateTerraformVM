@@ -17,7 +17,7 @@ resource "azurerm_network_interface" "myNetworkInterface" {
   }
 }
 
-resource "azurerm_windows_virtual_machine" "myVirtualMachine" {
+resource "azurerm_virtual_machine" "myVirtualMachine" {
   name                = var.name
   resource_group_name = azurerm_subnet.mySubnet.resource_group_name
   location            = azurerm_network_interface.myNetworkInterface.location
