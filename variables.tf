@@ -1,7 +1,7 @@
 variable "name" {
     description = "the name of the virtual machine that is to be created"
     type = string
-    default = "BDO"
+    default = "terraformVM"
 }
 
 variable "location" {
