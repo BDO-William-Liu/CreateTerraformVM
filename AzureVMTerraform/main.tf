@@ -29,8 +29,8 @@ resource "azurerm_windows_virtual_machine" "myVirtualMachine" {
   resource_group_name = azurerm_resource_group.myResourceGroup.name
   location            = azurerm_resource_group.myResourceGroup.location
   size                = var.size
-  admin_username      = var.adminUsername
-  admin_password      = var.adminPassword
+  admin_username      = var.admin_username
+  admin_password      = var.admin_password
   network_interface_ids = [
     azurerm_network_interface.myNetworkInterface.id
   ]
